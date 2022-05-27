@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import confirm from "./lib/components";
 
 function App() {
+  const openConfirm = () => {
+    confirm({
+      title: <>Confirmation!</>,
+      message: (
+        <>
+          Synonyms not selected. Want to proceed creating mappings without
+          copying synonyms?
+        </>
+      ),
+      confirmText: "Yes",
+      cancelText: "No",
+      confirmColor: "primary",
+      cancelColor: "link text-danger",
+    }).then((res) => {});
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={openConfirm}>Open Confirm</button>
     </div>
   );
 }
